@@ -1,10 +1,10 @@
-# Material for SWC Southampton workshop
+# Material for ESRC DTC SWC Southampton workshop
 =================================
 This git repository contains the files needed to help 
 you get started with the exercises associated with the 
-Software Carpentry workshop at the University of Southampton. 
+ESRC DTC Software Carpentry workshop at the University of Southampton. 
 Further information can be found online at the [workshop homepage] 
-(http://southampton-rsg.github.io/2016-08-31-southampton/).
+(http://southampton-rsg.github.io/2016-11-01-southampton/).
 
 
 
