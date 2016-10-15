@@ -3,7 +3,7 @@ layout: page-md
 title: Software Prerequisites
 ---
 
-[[Home]](https://southampton-rsg.github.io/2016-08-31-southampton/)
+[[Home]](https://southampton-rsg.github.io/2016-11-01-southampton/)
 
 **Prior to the workshop, it is vital that you install some software on your laptop and create an account at Github by following the instructions below!**
 
@@ -55,27 +55,35 @@ If nano is not installed, you will receive an error. If it is installed, nano wi
 To exit nano press CTRL+X (you might be prompted you to save or discard modified buffer - just type "N" to exit without saving).
 
 
-## Python
+## R
 
-We use Python 3.4, because it is generally the most widely used version of Python. We will also use the numpy and matplotlib libraries and the nose unit testing framework. Fortunately, these do not need to be installed separately! The "Python3.4 Anaconda" installation provides everything Python-related you will need for the workshop. To install Anaconda, follow the instructions below.
+[R](http://www.r-project.org) is a programming language that is especially powerful for data exploration, visualization, and statistical analysis. To interact with R, we use [RStudio](http://www.rstudio.com/).
+
+The "RStudio" installation provides everything R-related you will need for the workshop. To install RStudio, follow the instructions below.
 
 #### Windows
 
-Download the [Python3.4 Anaconda installer](https://repo.continuum.io/archive/Anaconda3-2.3.0-Windows-x86_64.exe). Double click the installer and follow the instructions.
+[Video Tutorial](https://www.youtube.com/watch?v=q0PjTAylwoU).
+
+Install R by downloading and running [this .exe file](http://cran.r-project.org/bin/windows/base/release.htm) from [CRAN](http://cran.r-project.org/index.html). Also, please install the [RStudio IDE](http://www.rstudio.com/ide/download/desktop).
 
 #### Mac OS X
 
-Download the [Python 3.4 Anaconda MAC OS X Graphical installer](https://repo.continuum.io/archive/Anaconda3-2.3.0-MacOSX-x86_64.pkg). Double click the `.pkg` file and follow the instructions.
+[Video Tutorial](https://www.youtube.com/watch?v=5-ly3kyxwEg)
+
+Install R by downloading and running [this .pkg file](http://cran.r-project.org/bin/macosx/R-latest.pkg) from [CRAN](http://cran.r-project.org/index.html). Also, please install the [RStudio IDE](http://www.rstudio.com/ide/download/desktop).
 
 #### Linux
 
-Download the [Python3.4 Anaconda installation script](https://repo.continuum.io/archive/Anaconda3-2.3.0-Linux-x86_64.sh). Install via the terminal like this:
-
-~~~{.code}
-bash Anaconda3-2.3.0-Linux-x86_64.sh
+You can download the binary files for your distribution from [CRAN](http://cran.r-project.org/index.html). Or you can use your package manager (e.g. for Debian/Ubuntu run:
 ~~~
-
-When asked "Do you wish the installer to prepend the Anaconda install location to PATH", answer "yes".
+sudo apt-get install r-base
+~~~
+and for Fedora run:
+~~~
+sudo yum install R
+~~~
+Also, please install the [RStudio IDE](http://www.rstudio.com/ide/download/desktop).
 
 ## Git
 
