@@ -13,7 +13,7 @@ There is little time during the workshop to deal with installation problems, so 
 
 We maintain a list of common problems that can occur during installation and ways of solving them. Take a look at the [Configuration Problems and Solutions wiki page](https://github.com/swcarpentry/workshop-template/wiki/Configuration-Problems-and-Solutions) for help.
 
-If you still have trouble, we will run a **Software Installation surgery from 13.00 PM until 16.00 PM** on ***Tuesday, August 30, 2016***. This will take place in room 3013 (Simon Hettrick's office), Building 32, Highfield campus. If you would like to come along to the surgery, [email us to arrange a time](mailto:rsg-info@soton.ac.uk). 
+If you still have trouble, then [email us](mailto:rsg-info@soton.ac.uk) and we will organise a time to meet. 
 
 
 ## Bash
@@ -76,13 +76,17 @@ Install R by downloading and running [this .pkg file](http://cran.r-project.org/
 #### Linux
 
 You can download the binary files for your distribution from [CRAN](http://cran.r-project.org/index.html). Or you can use your package manager (e.g. for Debian/Ubuntu run:
-~~~
+
+~~~ {.code}
 sudo apt-get install r-base
 ~~~
+
 and for Fedora run:
-~~~
+ 
+~~~ {.code}
 sudo yum install R
 ~~~
+
 Also, please install the [RStudio IDE](http://www.rstudio.com/ide/download/desktop).
 
 ## Git
