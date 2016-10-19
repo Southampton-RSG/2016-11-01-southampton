@@ -1,6 +1,6 @@
 ---
-layout: page
-title: Introduction to programming with R
+layout: lesson
+root: .
 ---
 
 The best way to learn how to program is to do something useful,
@@ -23,7 +23,7 @@ and to use that language *well*.
 
 We are studying inflammation in patients who have been given a new treatment for arthritis,
 and need to analyze the first dozen data sets of their daily inflammation.
-The data sets are stored in [comma-separated values](reference/#comma-separated-values) (CSV) format:
+The data sets are stored in [comma-separated values]({{ page.root }}/reference/#comma-separated-values) (CSV) format:
 each row holds information for a single patient,
 and the columns represent successive days.
 The first few rows of our first file look like this:
@@ -35,6 +35,7 @@ The first few rows of our first file look like this:
 0,0,2,0,4,2,2,1,6,7,10,7,9,13,8,8,15,10,10,7,17,4,4,7,6,15,6,4,9,11,3,5,6,3,3,4,2,3,2,1
 0,1,1,3,3,1,3,5,2,4,4,7,6,5,3,10,8,10,6,17,9,14,9,7,13,9,12,6,7,7,9,6,3,2,2,4,2,0,1,1
 ~~~
+{: .source}
 
 We want to:
 
@@ -49,3 +50,4 @@ To do all that, we'll have to learn a little bit about programming.
 > Learners need to understand the concepts of files and directories
 > (including the working directory).
 > We often use RStudio to teach this lesson, but it is not required.
+{: .prereq}
