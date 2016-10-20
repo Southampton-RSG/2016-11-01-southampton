@@ -52,11 +52,11 @@ fahr_to_kelvin <- function(temp) {
 
 We define `fahr_to_kelvin` by assigning it to the output of `function`.
 The list of argument names are contained within parentheses.
-Next, the [body](reference/#function-body) of the function--the statements that are executed when it runs--is contained within curly braces (`{}`).
+Next, the [body](reference#function-body) of the function--the statements that are executed when it runs--is contained within curly braces (`{}`).
 The statements in the body are indented by two spaces, which makes the code easier to read but does not affect how the code operates.
 
 When we call the function, the values we pass to it are assigned to those variables so that we can use them inside the function.
-Inside the function, we use a [return statement](reference/#return-statement) to send a result back to whoever asked for it.
+Inside the function, we use a [return statement](reference#return-statement) to send a result back to whoever asked for it.
 
 > ## Automatic Returns {.callout}
 >
@@ -116,7 +116,7 @@ kelvin_to_celsius(0)
 
 What about converting Fahrenheit to Celsius?
 We could write out the formula, but we don't need to.
-Instead, we can [compose](reference/#function-composition) the two functions we have already created:
+Instead, we can [compose](reference#function-composition) the two functions we have already created:
 
 
 ~~~{.r}
@@ -415,7 +415,7 @@ all.equal(sd(dat[, 4]), sd(centered))
 It's still possible that our function is wrong, but it seems unlikely enough that we should probably get back to doing our analysis.
 We have one more task first, though: we should write some [documentation]({{ page.root }}/reference#documentation) for our function to remind ourselves later what it's for and how to use it.
 
-A common way to put documentation in software is to add [comments](reference/#comment) like this:
+A common way to put documentation in software is to add [comments](reference#comment) like this:
 
 
 ~~~{.r}

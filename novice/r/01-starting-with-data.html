@@ -77,7 +77,7 @@
 </ul>
 </div>
 </section>
-<p>We are studying inflammation in patients who have been given a new treatment for arthritis, and need to analyze the first dozen data sets. The data sets are stored in <a href="reference/#comma-separated-values-(csv)">comma-separated values</a> (CSV) format. Each row holds the observations for just one patient. Each column holds the inflammation measured in a day, so we have a set of values in successive days. The first few rows of our first file look like this:</p>
+<p>We are studying inflammation in patients who have been given a new treatment for arthritis, and need to analyze the first dozen data sets. The data sets are stored in <a href="reference#comma-separated-values-(csv)">comma-separated values</a> (CSV) format. Each row holds the observations for just one patient. Each column holds the inflammation measured in a day, so we have a set of values in successive days. The first few rows of our first file look like this:</p>
 <pre class="output"><code>0,0,1,3,1,2,4,7,8,3,3,3,10,5,7,4,7,7,12,18,6,13,11,11,7,7,4,6,8,8,4,4,5,7,3,4,2,3,0,0
 0,1,2,1,2,1,3,2,2,6,10,11,5,9,4,4,7,16,8,6,18,4,12,5,12,7,11,5,11,3,3,5,4,4,5,5,1,1,0,1
 0,1,1,3,3,2,6,2,5,9,5,7,4,5,4,15,5,11,9,10,19,14,12,17,7,12,11,7,4,2,10,5,4,2,2,3,2,2,1,1
@@ -96,8 +96,8 @@
 <p>Just like in the Unix Shell, we type the command and then press <code>Enter</code> (or <code>return</code>). Alternatively you can change the working directory using the RStudio GUI using the menu option <code>Session</code> -&gt; <code>Set Working Directory</code> -&gt; <code>Choose Directory...</code></p>
 <p>The data files are located in the directory <code>data</code> inside the working directory. Now we can load the data into R using <code>read.csv</code>:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">read.csv</span>(<span class="dt">file =</span> <span class="st">&quot;data/inflammation-01.csv&quot;</span>, <span class="dt">header =</span> <span class="ot">FALSE</span>)</code></pre>
-<p>The expression <code>read.csv(...)</code> is a <a href="reference/#function-call">function call</a> that asks R to run the function <code>read.csv</code>.</p>
-<p><code>read.csv</code> has two <a href="reference/#argument">arguments</a>: the name of the file we want to read, and whether the first line of the file contains names for the columns of data. The filename needs to be a character string (or <a href="reference/#string">string</a> for short), so we put it in quotes. Assigning the second argument, <code>header</code>, to be <code>FALSE</code> indicates that the data file does not have column headers. We’ll talk more about the value <code>FALSE</code>, and its converse <code>TRUE</code>, in lesson 04.</p>
+<p>The expression <code>read.csv(...)</code> is a <a href="reference#function-call">function call</a> that asks R to run the function <code>read.csv</code>.</p>
+<p><code>read.csv</code> has two <a href="reference#argument">arguments</a>: the name of the file we want to read, and whether the first line of the file contains names for the columns of data. The filename needs to be a character string (or <a href="reference#string">string</a> for short), so we put it in quotes. Assigning the second argument, <code>header</code>, to be <code>FALSE</code> indicates that the data file does not have column headers. We’ll talk more about the value <code>FALSE</code>, and its converse <code>TRUE</code>, in lesson 04.</p>
 <aside class="callout panel panel-info">
 <div class="panel-heading">
 <h2><span class="glyphicon glyphicon-pushpin"></span>Other Options for Reading CSV Files</h2>
@@ -220,11 +220,11 @@ age &lt;- age - 20</code></pre>
 <pre><code>[1] &quot;data.frame&quot;</code></pre>
 <p>{: .output}</p>
 <p>The output tells us that is a data frame. Think of this structure as a spreadsheet in MS Excel that many of us are familiar with. Data frames are very useful for storing data and you will find them elsewhere when programming in R. A typical data frame of experimental data contains individual observations in rows and variables in columns.</p>
-<p>We can see the shape, or <a href="reference/#dimensions">dimensions</a>, of the data frame with the function <code>dim</code>:</p>
+<p>We can see the shape, or <a href="reference#dimensions">dimensions</a>, of the data frame with the function <code>dim</code>:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">dim</span>(dat)</code></pre>
 <pre class="output"><code>[1] 60 40</code></pre>
 <p>This tells us that our data frame, <code>dat</code>, has 60 rows and 40 columns.</p>
-<p>If we want to get a single value from the data frame, we can provide an <a href="reference/#index">index</a> in square brackets, just as we do in math:</p>
+<p>If we want to get a single value from the data frame, we can provide an <a href="reference#index">index</a> in square brackets, just as we do in math:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># first value in dat</span>
 dat[<span class="dv">1</span>, <span class="dv">1</span>]</code></pre>
 <pre class="output"><code>[1] 0</code></pre>
@@ -238,7 +238,7 @@ dat[<span class="dv">30</span>, <span class="dv">20</span>]</code></pre>
 2  0  1  2  1  2  1  3  2  2   6
 3  0  1  1  3  3  2  6  2  5   9
 4  0  0  2  0  4  2  2  1  6   7</code></pre>
-<p>The <a href="reference/#slice">slice</a> <code>1:4</code> means, “Start at index 1 and go to index 4.”</p>
+<p>The <a href="reference#slice">slice</a> <code>1:4</code> means, “Start at index 1 and go to index 4.”</p>
 <p>The slice does not need to start at 1, e.g. the line below selects rows 5 through 10:</p>
 <pre class="sourceCode r"><code class="sourceCode r">dat[<span class="dv">5</span>:<span class="dv">10</span>, <span class="dv">1</span>:<span class="dv">10</span>]</code></pre>
 <pre class="output"><code>   V1 V2 V3 V4 V5 V6 V7 V8 V9 V10
@@ -340,7 +340,7 @@ patient_1 &lt;-<span class="st"> </span>dat[<span class="dv">1</span>, ]
 </aside>
 <blockquote>
 <h2>Slicing (Subsetting) Data</h2>
-<p>A subsection of a data frame is called a <a href="reference/#slice">slice</a>. We can take slices of character vectors as well:</p>
+<p>A subsection of a data frame is called a <a href="reference#slice">slice</a>. We can take slices of character vectors as well:</p>
 <pre class="sourceCode r"><code class="sourceCode r">animal &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;m&quot;</span>, <span class="st">&quot;o&quot;</span>, <span class="st">&quot;n&quot;</span>, <span class="st">&quot;k&quot;</span>, <span class="st">&quot;e&quot;</span>, <span class="st">&quot;y&quot;</span>)
 <span class="co"># first three characters</span>
 animal[<span class="dv">1</span>:<span class="dv">3</span>]</code></pre>
