@@ -39,7 +39,7 @@ subtitle: Analyzing Patient Data
 
 We are studying inflammation in patients who have been given a new treatment for arthritis,
 and need to analyze the first dozen data sets.
-The data sets are stored in [comma-separated values]({{ page.root }}/reference/#comma-separated-values-(csv)) (CSV) format. Each row holds the observations for just one patient. Each column holds the inflammation measured in a day, so we have a set of values in successive days.
+The data sets are stored in [comma-separated values](reference/#comma-separated-values-(csv)) (CSV) format. Each row holds the observations for just one patient. Each column holds the inflammation measured in a day, so we have a set of values in successive days.
 The first few rows of our first file look like this:
 
 
@@ -81,10 +81,10 @@ read.csv(file = "data/inflammation-01.csv", header = FALSE)
 ~~~
 
 
-The expression `read.csv(...)` is a [function call]({{ page.root }}/reference/#function-call) that asks R to run the function `read.csv`.
+The expression `read.csv(...)` is a [function call](reference/#function-call) that asks R to run the function `read.csv`.
 
-`read.csv` has two [arguments]({{ page.root }}/reference/#argument): the name of the file we want to read, and whether the first line of the file contains names for the columns of data.
-The filename needs to be a character string (or [string]({{ page.root }}/reference/#string) for short), so we put it in quotes. Assigning the second argument, `header`, to be `FALSE` indicates that the data file does not have column headers. We'll talk more about the value `FALSE`, and its converse `TRUE`, in lesson 04.
+`read.csv` has two [arguments](reference/#argument): the name of the file we want to read, and whether the first line of the file contains names for the columns of data.
+The filename needs to be a character string (or [string](reference/#string) for short), so we put it in quotes. Assigning the second argument, `header`, to be `FALSE` indicates that the data file does not have column headers. We'll talk more about the value `FALSE`, and its converse `TRUE`, in lesson 04.
 
 > ## Other Options for Reading CSV Files {.callout}
 >
@@ -322,7 +322,7 @@ class(dat)
 The output tells us that is a data frame. Think of this structure as a spreadsheet in MS Excel that many of us are familiar with.
 Data frames are very useful for storing data and you will find them elsewhere when programming in R. A typical data frame of experimental data contains individual observations in rows and variables in columns.
 
-We can see the shape, or [dimensions]({{ page.root }}/reference/#dimensions), of the data frame with the function `dim`:
+We can see the shape, or [dimensions](reference/#dimensions), of the data frame with the function `dim`:
 
 
 ~~~{.r}
@@ -337,7 +337,7 @@ dim(dat)
 
 This tells us that our data frame, `dat`, has 60 rows and 40 columns.
 
-If we want to get a single value from the data frame, we can provide an [index]({{ page.root }}/reference/#index) in square brackets, just as we do in math:
+If we want to get a single value from the data frame, we can provide an [index](reference/#index) in square brackets, just as we do in math:
 
 
 ~~~{.r}
@@ -377,7 +377,7 @@ dat[1:4, 1:10]
 4  0  0  2  0  4  2  2  1  6   7
 ~~~
 
-The [slice]({{ page.root }}/reference/#slice) `1:4` means, "Start at index 1 and go to index 4."
+The [slice](reference/#slice) `1:4` means, "Start at index 1 and go to index 4."
 
 The slice does not need to start at 1, e.g. the line below selects rows 5 through 10:
 
@@ -584,7 +584,7 @@ We'll learn why this is so in the next lesson.
 
 > ## Slicing (Subsetting) Data
 >
-> A subsection of a data frame is called a [slice]({{ page.root }}/reference/#slice).
+> A subsection of a data frame is called a [slice](reference/#slice).
 > We can take slices of character vectors as well:
 >
 > 

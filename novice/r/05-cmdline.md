@@ -58,7 +58,7 @@ $ Rscript readings.R --max data/inflammation-*.csv
 
 Our overall requirements are:
 
-1. If no filename is given on the command line, read data from [standard input]({{ page.root }}/reference/#standard-input).
+1. If no filename is given on the command line, read data from [standard input](reference/#standard-input).
 2. If one or more filenames are given, read data from them and report statistics for each file separately.
 3. Use the `--min`, `--mean`, or `--max` flag to determine what statistic to print.
 
@@ -116,7 +116,7 @@ cat(args, sep = "\n")
 
 The function `commandArgs` extracts all the command line arguments and returns them as a vector.
 The function `cat`, similar to the `cat` of the Unix Shell, outputs the contents of the variable.
-Since we did not specify a filename for writing, `cat` sends the output to [standard output]({{ page.root }}/reference/#standard-output-(stdout)),
+Since we did not specify a filename for writing, `cat` sends the output to [standard output](reference/#standard-output-(stdout)),
 which we can then pipe to other Unix functions.
 Because we set the argument `sep` to `"\n"`, which is the symbol to start a new line, each element of the vector is printed on its own line.
 Let's see what happens when we run this program in the Unix Shell:
@@ -320,7 +320,7 @@ Rscript readings-02.R data/inflammation-01.csv
 >
 > 1. Write a command-line program that does addition and subtraction.
 >
->    **Hint:** Everything argument read from the command-line is interpreted as a character [string]({{ page.root }}/reference/#string).
+>    **Hint:** Everything argument read from the command-line is interpreted as a character [string](reference/#string).
 >    You can convert from a string to a number using the function `as.numeric`.
 >
 > 

@@ -75,7 +75,7 @@
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">Rscript</span> readings.R --max data/inflammation-*.csv</code></pre>
 <p>Our overall requirements are:</p>
 <ol style="list-style-type: decimal">
-<li>If no filename is given on the command line, read data from <a href="{{%20page.root%20}}/reference/#standard-input">standard input</a>.</li>
+<li>If no filename is given on the command line, read data from <a href="reference/#standard-input">standard input</a>.</li>
 <li>If one or more filenames are given, read data from them and report statistics for each file separately.</li>
 <li>Use the <code>--min</code>, <code>--mean</code>, or <code>--max</code> flag to determine what statistic to print.</li>
 </ol>
@@ -105,7 +105,7 @@ attached base packages:
 <p>Now let’s create another script that does something more interesting. Write the following lines in a file named <code>print-args.R</code>:</p>
 <pre class="output"><code>args &lt;- commandArgs()
 cat(args, sep = &quot;\n&quot;)</code></pre>
-<p>The function <code>commandArgs</code> extracts all the command line arguments and returns them as a vector. The function <code>cat</code>, similar to the <code>cat</code> of the Unix Shell, outputs the contents of the variable. Since we did not specify a filename for writing, <code>cat</code> sends the output to <a href="{{%20page.root%20}}/reference/#standard-output-(stdout)">standard output</a>, which we can then pipe to other Unix functions. Because we set the argument <code>sep</code> to <code>&quot;\n&quot;</code>, which is the symbol to start a new line, each element of the vector is printed on its own line. Let’s see what happens when we run this program in the Unix Shell:</p>
+<p>The function <code>commandArgs</code> extracts all the command line arguments and returns them as a vector. The function <code>cat</code>, similar to the <code>cat</code> of the Unix Shell, outputs the contents of the variable. Since we did not specify a filename for writing, <code>cat</code> sends the output to <a href="reference/#standard-output-(stdout)">standard output</a>, which we can then pipe to other Unix functions. Because we set the argument <code>sep</code> to <code>&quot;\n&quot;</code>, which is the symbol to start a new line, each element of the vector is printed on its own line. Let’s see what happens when we run this program in the Unix Shell:</p>
 <pre class="sourceCode r"><code class="sourceCode r">Rscript print-args.R</code></pre>
 <pre class="output"><code>/Library/Frameworks/R.framework/Resources/bin/exec/R
 --slave
@@ -233,7 +233,7 @@ main()</code></pre>
 <ol style="list-style-type: decimal">
 <li>Write a command-line program that does addition and subtraction.</li>
 </ol>
-<p><strong>Hint:</strong> Everything argument read from the command-line is interpreted as a character <a href="{{%20page.root%20}}/reference/#string">string</a>. You can convert from a string to a number using the function <code>as.numeric</code>.</p>
+<p><strong>Hint:</strong> Everything argument read from the command-line is interpreted as a character <a href="reference/#string">string</a>. You can convert from a string to a number using the function <code>as.numeric</code>.</p>
 <pre class="sourceCode r"><code class="sourceCode r">Rscript arith.R <span class="dv">1</span> +<span class="st"> </span><span class="dv">2</span></code></pre>
 <pre class="output"><code>3</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r">Rscript arith.R <span class="dv">3</span> -<span class="st"> </span><span class="dv">4</span></code></pre>

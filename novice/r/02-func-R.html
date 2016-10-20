@@ -78,8 +78,8 @@
   kelvin &lt;-<span class="st"> </span>((temp -<span class="st"> </span><span class="dv">32</span>) *<span class="st"> </span>(<span class="dv">5</span> /<span class="st"> </span><span class="dv">9</span>)) +<span class="st"> </span><span class="fl">273.15</span>
   <span class="kw">return</span>(kelvin)
 }</code></pre>
-<p>We define <code>fahr_to_kelvin</code> by assigning it to the output of <code>function</code>. The list of argument names are contained within parentheses. Next, the <a href="{{%20page.root%20}}/reference/#function-body">body</a> of the function–the statements that are executed when it runs–is contained within curly braces (<code>{}</code>). The statements in the body are indented by two spaces, which makes the code easier to read but does not affect how the code operates.</p>
-<p>When we call the function, the values we pass to it are assigned to those variables so that we can use them inside the function. Inside the function, we use a <a href="{{%20page.root%20}}/reference/#return-statement">return statement</a> to send a result back to whoever asked for it.</p>
+<p>We define <code>fahr_to_kelvin</code> by assigning it to the output of <code>function</code>. The list of argument names are contained within parentheses. Next, the <a href="reference/#function-body">body</a> of the function–the statements that are executed when it runs–is contained within curly braces (<code>{}</code>). The statements in the body are indented by two spaces, which makes the code easier to read but does not affect how the code operates.</p>
+<p>When we call the function, the values we pass to it are assigned to those variables so that we can use them inside the function. Inside the function, we use a <a href="reference/#return-statement">return statement</a> to send a result back to whoever asked for it.</p>
 <aside class="callout panel panel-info">
 <div class="panel-heading">
 <h2><span class="glyphicon glyphicon-pushpin"></span>Automatic Returns</h2>
@@ -106,7 +106,7 @@
 <span class="co">#absolute zero in Celsius</span>
 <span class="kw">kelvin_to_celsius</span>(<span class="dv">0</span>)</code></pre>
 <pre class="output"><code>[1] -273.15</code></pre>
-<p>What about converting Fahrenheit to Celsius? We could write out the formula, but we don’t need to. Instead, we can <a href="{{%20page.root%20}}/reference/#function-composition">compose</a> the two functions we have already created:</p>
+<p>What about converting Fahrenheit to Celsius? We could write out the formula, but we don’t need to. Instead, we can <a href="reference/#function-composition">compose</a> the two functions we have already created:</p>
 <pre class="sourceCode r"><code class="sourceCode r">fahr_to_celsius &lt;-<span class="st"> </span>function(temp) {
   temp_k &lt;-<span class="st"> </span><span class="kw">fahr_to_kelvin</span>(temp)
   result &lt;-<span class="st"> </span><span class="kw">kelvin_to_celsius</span>(temp_k)
@@ -237,7 +237,7 @@ centered &lt;-<span class="st"> </span><span class="kw">center</span>(dat[, <spa
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">all.equal</span>(<span class="kw">sd</span>(dat[, <span class="dv">4</span>]), <span class="kw">sd</span>(centered))</code></pre>
 <pre class="output"><code>[1] TRUE</code></pre>
 <p>It’s still possible that our function is wrong, but it seems unlikely enough that we should probably get back to doing our analysis. We have one more task first, though: we should write some <a href="{{%20page.root%20}}/reference#documentation">documentation</a> for our function to remind ourselves later what it’s for and how to use it.</p>
-<p>A common way to put documentation in software is to add <a href="{{%20page.root%20}}/reference/#comment">comments</a> like this:</p>
+<p>A common way to put documentation in software is to add <a href="reference/#comment">comments</a> like this:</p>
 <pre class="sourceCode r"><code class="sourceCode r">center &lt;-<span class="st"> </span>function(data, desired) {
   <span class="co"># return a new vector containing the original data centered around the</span>
   <span class="co"># desired value.</span>
