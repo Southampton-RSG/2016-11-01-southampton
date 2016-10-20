@@ -254,7 +254,7 @@ length(vowels)
 ~~~
 
 
-`length` is much faster than any R function we could write ourselves, and much easier to read than a two-line loop; it will also give us the length of many other things that we haven't met yet, so we should always use it when we can (see this [lesson]({{ page.root }}/13-supp-data-structures/) to learn more about the different ways to store data in R).
+`length` is much faster than any R function we could write ourselves, and much easier to read than a two-line loop; it will also give us the length of many other things that we haven't met yet, so we should always use it when we can (see this [lesson](13-supp-data-structures/) to learn more about the different ways to store data in R).
 
 
 > ## Printing Numbers {.challenge}
@@ -394,7 +394,7 @@ We do not need to write it ourselves because R already has a function to do this
 If we run the function without any arguments, `list.files()`, it returns every file in the current working directory.
 We can understand this result by reading the help file (`?list.files`).
 The first argument, `path`, is the path to the directory to be searched, and it has the default value of `"."`
-(recall from the [lesson]({{ site.swc_pages }}/shell-novice/01-filedir/) on the Unix Shell that `"."` is shorthand for the current working directory).
+(recall from the [lesson](../shell/01-filedir/) on the Unix Shell that `"."` is shorthand for the current working directory).
 The second argument, `pattern`, is the pattern being searched, and it has the default value of `NULL`.
 Since no pattern is specified to filter the files, all files are returned.
 
@@ -528,7 +528,7 @@ Sure enough, the maxima of these data sets show exactly the same ramp as the fir
 > accomplish this. Sometimes the choice of one method over another is more a
 > matter of personal style, but other times it can have consequences for the
 > speed of your code. For instruction on best practices, see this supplementary
-> [lesson]({{ page.root }}/15-supp-loops-in-depth/) that demonstrates how to properly repeat
+> [lesson](15-supp-loops-in-depth/) that demonstrates how to properly repeat
 > operations in R.
 
 

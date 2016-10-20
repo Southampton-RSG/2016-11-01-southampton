@@ -156,7 +156,7 @@ length
 
 A `for` loop is used to apply the same function calls to a collection of objects.
 R has a family of functions, the `apply` family, which can be used in much the same way.
-You've already used one of the family, `apply` in the first [lesson]({{ page.root }}/01-starting-with-data/).
+You've already used one of the family, `apply` in the first [lesson](01-starting-with-data/).
 The `apply` family members include
 
  * `apply`  - apply over the margins of an array (e.g. the rows or columns of a matrix)
