@@ -10,15 +10,15 @@ minutes: 10
 
 ![Creating a Repository](img/slides/version-control-with-git-slides - 10.jpg)
 
-So, first let's change to our code directory.  Note that this is *not* the directory that you were using in the **Python** lesson, but should contain clean versions of the same files you were working on.  This is to ensure that everyone has the same files to start the lesson.
+So, first let's change to our code directory.  Note that this is *not* the directory that you were using in the **R** lesson, but should contain clean versions of the climate analysis and temperature conversion files you will work on now.  This is to ensure that everyone has the same files to start the lesson.
 
 ~~~ {.bash}
-$ cd ~/2016-08-31-Southampton/novice/git/code
+$ cd ~/2016-11-01-Southampton/novice/git/code
 $ ls
 ~~~
 
 ~~~ {.output}
-climate_analysis.py  temp_conversion.py
+climate_analysis.R  temp_conversion.R
 ~~~~
 
 Once Git is configured,
@@ -46,7 +46,7 @@ we can see that Git has created a hidden directory called `.git`:
 $ ls -a
 ~~~
 ~~~ {.output}
-.  ..  climate_analysis.py  .git  temp_conversion.py
+.  ..  climate_analysis.R  .git  temp_conversion.R
 ~~~
 
 Git stores information about the project in here.
@@ -69,8 +69,8 @@ Initial commit
 Untracked files:
   (use "git add <file>..." to include in what will be committed)
 
-	climate_analysis.py
-	temp_conversion.py
+	climate_analysis.R
+	temp_conversion.R
 
 nothing added to commit but untracked files present (use "git add" to track)
 ~~~
