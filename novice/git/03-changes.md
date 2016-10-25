@@ -16,7 +16,7 @@ minutes: 20
 We can tell Git to track a file using `git add`:
 
 ~~~ {.bash}
-$ git add climate_analysis.py temp_conversion.py
+$ git add climate_analysis.R temp_conversion.R
 ~~~
 
 and then check that the right thing happened:
@@ -32,11 +32,11 @@ Initial commit
 Changes to be committed:
   (use "git rm --cached <file>..." to unstage)
 
-        new file:   climate_analysis.py
-        new file:   temp_conversion.py
+        new file:   climate_analysis.R
+        new file:   temp_conversion.R
 ~~~
 
-Git now knows that it's supposed to keep track of `climate_analysis.py` and `temp_conversion.py`,
+Git now knows that it's supposed to keep track of `climate_analysis.R` and `temp_conversion.R`,
 but it hasn't recorded these changes as a commit yet.
 
 ###Initial Commit###
@@ -64,8 +64,8 @@ a blank line between the summary line and your additional notes.
 ~~~ {.output}
 [master (root-commit) a10bd8f] Initial commit of climate analysis code
  2 files changed, 50 insertions(+)
- create mode 100644 climate_analysis.py
- create mode 100644 temp_conversion.py
+ create mode 100644 climate_analysis.R
+ create mode 100644 temp_conversion.R
 ~~~
 
 When we run `git commit`,
@@ -106,11 +106,11 @@ we can ask Git to show us the project's history using `git log`:
 $ git log
 ~~~
 ~~~ {.output}
-commit a10bd8f6192f9ab29b1821d7d7929fbf6484686a
-Author: John R <j.robinson@software.ac.uk>
-Date:   Mon Dec 7 14:13:32 2015 +0000
+commit c28a0b92b191fb723fce4519581b62d2f51888f5
+Author: DevasenaInupakutika <devasena.prasad@gmail.com>
+Date:   Mon Oct 24 14:42:14 2016 +0100
 
-    Initial commit of climate analysis code
+    Updated data and created climate analysis and temperature conversion R scripts for git material
 ~~~
 
 `git log` lists all revisions  made to a repository in reverse chronological order.
@@ -125,20 +125,20 @@ and the log message Git was given when the revision was created.
 
 > ## Where Are My Changes? {.callout}
 >
-> If we run `ls` at this point, we will still see just our original files called `climate_analysis.py` and `temp_conversion.py`.
+> If we run `ls` at this point, we will still see just our original files called `climate_analysis.R` and `temp_conversion.R`.
 > That's because Git saves information about files' history
 > in the special `.git` directory mentioned earlier
 > so that our filesystem doesn't become cluttered
 > (and so that we can't accidentally edit or delete an old version).
 
 ###Modify a file (1)###
-Now suppose we add more information, a **Docstring**, to the **top** of one of the files:
+Now suppose we add more information, a `comment`, to the **top** of one of the files:
 
 ~~~ {.bash}
-$ nano climate_analysis.py
+$ nano climate_analysis.R
 ~~~
 ~~~ {.output}
-""" Climate Analysis Tools """
+#Climate Analysis Tools
 ~~~
 
 When we run `git status` now,
@@ -148,13 +148,14 @@ it tells us that a file it already knows about has been modified:
 $ git status
 ~~~
 ~~~ {.output}
-On branch master
-Changes not staged for commit:
-  (use "git add <file>..." to update what will be committed)
-  (use "git checkout -- <file>..." to discard changes in working directory)
-
-		modified:   climate_analysis.py
-
+# On branch gh-pages
+# Changes not staged for commit:
+#   (use "git add <file>..." to update what will be committed)
+#   (use "git checkout -- <file>..." to discard changes in working directory)
+#
+# modified:   ../03-changes.md
+# modified:   climate_analysis.R
+#
 no changes added to commit (use "git add" and/or "git commit -a")
 ~~~
 
