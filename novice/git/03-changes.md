@@ -180,15 +180,14 @@ of the file and the most recently saved version:
 $ git diff
 ~~~
 ~~~ {.output}
-diff --git a/climate_analysis.py b/climate_analysis.py
+diff --git a/climate_analysis.R b/climate_analysis.R
 index 277d6c7..d5b442d 100644
---- a/climate_analysis.py
-+++ b/climate_analysis.py
+--- a/climate_analysis.R
++++ b/climate_analysis.R
 @@ -1,3 +1,4 @@
-+""" Climate Analysis Tools """
-import sys
-import temp_conversion
-import signal
++#Climate Analysis Tools
+#Using temperature conversion functions from library temerature_conversion.
+source("temp_conversion.R")
 ~~~
 
 > ## Windows users note {.callout}
@@ -213,12 +212,12 @@ The key things to note are:
 After reviewing our change, it's time to commit it:
 
 ~~~ {.bash}
-$ git commit -m "Add Docstring"
+$ git commit -m "Add documentation"
 ~~~
 ~~~ {.output}
 On branch master
 Changes not staged for commit:
-        modified:   climate_analysis.py
+        modified:   climate_analysis.R
 
 no changes added to commit
 ~~~
@@ -228,11 +227,11 @@ Git won't commit because we didn't use `git add` first.
 Let's fix that:
 
 ~~~ {.bash}
-$ git add climate_analysis.py
-$ git commit -m "Add Docstring"
+$ git add climate_analysis.R
+$ git commit -m "Add documentation"
 ~~~
 ~~~ {.output}
-[master 6077ba7] Add Docstring
+[master 6077ba7] Add Documentation
  1 file changed, 1 insertion(+)
 ~~~
 
@@ -259,7 +258,7 @@ but *not* commit the work we're doing on the conclusion
 Let's add another line to the end of the file:
 
 ~~~ {.bash}
-$ nano climate_analysis.py
+$ nano climate_analysis.R
 ~~~
 ~~~ {.output}
 # TODO(js-robinson): Add call to process rainfall
@@ -270,14 +269,17 @@ Check what's changed with **diff**:
 $ git diff
 ~~~
 ~~~ {.output}
-diff --git a/climate_analysis.py b/climate_analysis.py
+diff --git a/climate_analysis.R b/climate_analysis.R
 index d5b442d..c463f71 100644
---- a/climate_analysis.py
-+++ b/climate_analysis.py
-@@ -26,3 +26,5 @@ for line in climate_data:
-             kelvin = temp_conversion.fahr_to_kelvin(fahr)
+--- a/climate_analysis.R
++++ b/climate_analysis.R
+@@ -26,3 +26,5 @@ for (temp in fahr){
+             kelvin <- fahr_to_kelvin(fahr)
  
-             print(str(celsius)+", "+str(kelvin))
+             print(paste("Celsius temperatures: ",celsius))
+             print(", ")
+             print(paste("Fahrenheit temperatures: ",kelvin))
+}            
 +
 +# TODO(js-robinson): Add call to process rainfall
 ~~~
@@ -290,7 +292,7 @@ Now let's put that change in the staging area (or **add it to the change set**)
 and see what `git diff` reports:
 
 ~~~ {.bash}
-$ git add climate_analysis.py
+$ git add climate_analysis.R
 $ git diff
 ~~~
 
@@ -307,14 +309,16 @@ However, if we do this:
 $ git diff --staged
 ~~~
 ~~~ {.output}
-diff --git a/climate_analysis.py b/climate_analysis.py
+diff --git a/climate_analysis.R b/climate_analysis.R
 index d5b442d..c463f71 100644
---- a/climate_analysis.py
-+++ b/climate_analysis.py
-@@ -26,3 +26,5 @@ for line in climate_data:
-             kelvin = temp_conversion.fahr_to_kelvin(fahr)
- 
-             print(str(celsius)+", "+str(kelvin))
+--- a/climate_analysis.R
++++ b/climate_analysis.R
+@@ -26,3 +26,5 @@ for  (temp in fahr){
+             kelvin <- fahr_to_kelvin(fahr)
+             print(paste("Celsius temperatures: ",celsius))
+             print(", ")
+             print(paste("Fahrenheit temperatures: ",kelvin))
+}             
 +
 +# TODO(me): Add call to process rainfall
 ~~~
@@ -332,7 +336,7 @@ $ git commit -m "Add rainfall processing placeholder"
 ~~~
 ~~~ {.output}
 [master dab17a9] Add rainfall processing placeholder
- 1 file changed, 2 insertions(+)
+ 1 file changed, 4 insertions(+)
 ~~~
 
 check our status:
@@ -351,21 +355,21 @@ and now look at the history of what we've done so far:
 $ git log
 ~~~
 ~~~ {.output}
-commit dab17a9f0d2e8e598522a1c06dcaf396084f60e6
-Author: John R <j.robinson@software.ac.uk>
-Date:   Mon Dec 7 14:57:39 2015 +0000
+commit c65d820c98de39c46258146e57f6e1b7bef4bb49
+Author: DevasenaInupakutika <devasena.prasad@gmail.com>
+Date:   Tue Oct 25 16:59:19 2016 +0100
 
     Add rainfall processing placeholder
 
-commit 6077ba7b614de65fa28cc58c6cb8a4c55735a9d8
-Author: John R <j.robinson@software.ac.uk>
-Date:   Mon Dec 7 14:40:02 2015 +0000
+commit 711ff3ac6615a86a432dfa8ac38ad6e90b7a8a48
+Author: DevasenaInupakutika <devasena.prasad@gmail.com>
+Date:   Mon Oct 24 14:51:45 2016 +0100
 
-    Add Docstring
+    Add Documentation
 
-commit a10bd8f6192f9ab29b1821d7d7929fbf6484686a
-Author: John R <j.robinson@software.ac.uk>
-Date:   Mon Dec 7 14:13:32 2015 +0000
+commit c28a0b92b191fb723fce4519581b62d2f51888f5
+Author: DevasenaInupakutika <devasena.prasad@gmail.com>
+Date:   Mon Oct 24 14:42:14 2016 +0100
 
     Initial commit of climate analysis code
 
