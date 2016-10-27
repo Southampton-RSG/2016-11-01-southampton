@@ -28,39 +28,43 @@ means "the previous revision",
 while `HEAD~123` goes back 123 revisions from where we are now.
 
 ~~~ {.bash}
-$ git diff HEAD~1 climate_analysis.py
+$ git diff HEAD~1 climate_analysis.R
 ~~~
 ~~~ {.output}
-diff --git a/climate_analysis.py b/climate_analysis.py
+diff --git a/climate_analysis.R b/climate_analysis.R
 index d5b442d..c463f71 100644
---- a/climate_analysis.py
-+++ b/climate_analysis.py
-@@ -26,3 +26,5 @@ for line in climate_data:
-             kelvin = temp_conversion.fahr_to_kelvin(fahr)
- 
-             print(str(celsius)+", "+str(kelvin))
+--- a/climate_analysis.R
++++ b/climate_analysis.R
+@@ -26,3 +26,5 @@ for  (temp in fahr){
+             kelvin <- fahr_to_kelvin(fahr)
+             print(paste("Celsius temperatures: ",celsius))
+             print(", ")
+             print(paste("Fahrenheit temperatures: ",kelvin))
+}             
 +
 +# TODO(me): Add call to process rainfall
 ~~~
 So we see the difference between the file as it is now, and as it was **before the last commit**
 
 ~~~ {.bash}
-$ git diff HEAD~2 climate_analysis.py
+$ git diff HEAD~2 climate_analysis.R
 ~~~
 ~~~ {.output}
-diff --git a/climate_analysis.py b/climate_analysis.py
+diff --git a/climate_analysis.R b/climate_analysis.R
 index 277d6c7..c463f71 100644
---- a/climate_analysis.py
-+++ b/climate_analysis.py
+--- a/climate_analysis.R
++++ b/climate_analysis.R
 @@ -1,3 +1,4 @@
-+""" Climate Analysis Tools """
- import sys
- import temp_conversion
- import signal
-@@ -25,3 +26,5 @@ for line in climate_data:
-             kelvin = temp_conversion.fahr_to_kelvin(fahr)
++#Climate Analysis Tools
+#Using temperature conversion functions from library temerature_conversion.
+source("temp_conversion.R")
+@@ -25,3 +26,5 @@ for (temp in fahr){
+             kelvin <- fahr_to_kelvin(fahr)
  
-             print(str(celsius)+", "+str(kelvin))
+             print(paste("Celsius temperatures: ",celsius))
+             print(", ")
+             print(paste("Fahrenheit temperatures: ",kelvin))
+}            
 +
 +# TODO(me): Add call to process rainfall
 ~~~
@@ -79,26 +83,28 @@ has a unique 40-character identifier. (A SHA-1 hash of the new, post-commit stat
 
 Our first commit was given the ID: **[bottom ID from git log]**
 
-a10bd8f6192f9ab29b1821d7d7929fbf6484686a,
+c28a0b92b191fb723fce4519581b62d2f51888f5,
 so let's try this:
 
 ~~~ {.bash}
-$ git diff a10bd8f6192f9ab29b1821d7d7929fbf6484686a climate_analysis.py
+$ git diff c28a0b92b191fb723fce4519581b62d2f51888f5 climate_analysis.R
 ~~~
 ~~~ {.output}
-diff --git a/climate_analysis.py b/climate_analysis.py
+diff --git a/climate_analysis.R b/climate_analysis.R
 index 277d6c7..c463f71 100644
---- a/climate_analysis.py
-+++ b/climate_analysis.py
+--- a/climate_analysis.R
++++ b/climate_analysis.R
 @@ -1,3 +1,4 @@
-+""" Climate Analysis Tools """
- import sys
- import temp_conversion
- import signal
-@@ -25,3 +26,5 @@ for line in climate_data:
-             kelvin = temp_conversion.fahr_to_kelvin(fahr)
++#Climate Analysis Tools
+#Using temperature conversion functions from library temerature_conversion.
+source("temp_conversion.R")
+@@ -25,3 +26,5 @@ for (temp in fahr){
+             kelvin <- fahr_to_kelvin(fahr)
  
-             print(str(celsius)+", "+str(kelvin))
+             print(paste("Celsius temperatures: ",celsius))
+             print(", ")
+             print(paste("Fahrenheit temperatures: ",kelvin))
+}            
 +
 +# TODO(me): Add call to process rainfall
 ~~~
@@ -107,22 +113,24 @@ That's the right answer,but typing random 40-character strings is annoying,
 so Git lets us use just the first **seven**:
 
 ~~~ {.bash}
-$ git diff a10bd8f climate_analysis.py
+$ git diff c28a0b9 climate_analysis.R
 ~~~
 ~~~ {.output}
-diff --git a/climate_analysis.py b/climate_analysis.py
+diff --git a/climate_analysis.R b/climate_analysis.R
 index 277d6c7..c463f71 100644
---- a/climate_analysis.py
-+++ b/climate_analysis.py
+--- a/climate_analysis.R
++++ b/climate_analysis.R
 @@ -1,3 +1,4 @@
-+""" Climate Analysis Tools """
- import sys
- import temp_conversion
- import signal
-@@ -25,3 +26,5 @@ for line in climate_data:
-             kelvin = temp_conversion.fahr_to_kelvin(fahr)
++#Climate Analysis Tools
+#Using temperature conversion functions from library temerature_conversion.
+source("temp_conversion.R")
+@@ -25,3 +26,5 @@ for (temp in fahr){
+             kelvin <- fahr_to_kelvin(fahr)
  
-             print(str(celsius)+", "+str(kelvin))
+             print(paste("Celsius temperatures: ",celsius))
+             print(", ")
+             print(paste("Fahrenheit temperatures: ",kelvin))
+}            
 +
 +# TODO(me): Add call to process rainfall
 ~~~
@@ -137,11 +145,11 @@ we can **save changes** to files and **see what we've changed** &mdash; suppose 
 Let's suppose we **accidentally** overwritem or delete our file:
 
 ~~~ {.bash}
-$ rm climate_analysis.py
+$ rm climate_analysis.R
 $ ls
 ~~~
 ~~~ {.output}
-temp_conversion.py
+temp_conversion.R
 ~~~
 
 **Whoops!**
@@ -158,7 +166,7 @@ Changes not staged for commit:
   (use "git add/rm <file>..." to update what will be committed)
   (use "git checkout -- <file>..." to discard changes in working directory)
 
-        deleted:    climate_analysis.py
+        deleted:    climate_analysis.R
 
 no changes added to commit (use "git add" and/or "git commit -a")
 ~~~
@@ -167,8 +175,8 @@ Following the helpful hint in that output, we can put things back the way they w
 by using `git checkout`:
 
 ~~~ {.bash}
-$ git checkout HEAD climate_analysis.py
-$ cat climate_analysis.py
+$ git checkout HEAD climate_analysis.R
+$ cat climate_analysis.R
 ~~~
 ~~~ {.output}
 [SNIPPED - but changes rolled back]
@@ -186,7 +194,7 @@ we could use a revision identifier instead:
 
 
 ~~~ {.bash}
-$ git checkout <last but one rev> climate_analysis.py
+$ git checkout <last but one rev> climate_analysis.R
 ~~~
 
 ![Restoring Files](img/slides/version-control-with-git-slides - 17.jpg)

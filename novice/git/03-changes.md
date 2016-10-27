@@ -212,7 +212,7 @@ The key things to note are:
 After reviewing our change, it's time to commit it:
 
 ~~~ {.bash}
-$ git commit -m "Add documentation"
+$ git commit -m "Add Documentation"
 ~~~
 ~~~ {.output}
 On branch master
@@ -228,7 +228,7 @@ Let's fix that:
 
 ~~~ {.bash}
 $ git add climate_analysis.R
-$ git commit -m "Add documentation"
+$ git commit -m "Add Documentation"
 ~~~
 ~~~ {.output}
 [master 6077ba7] Add Documentation
