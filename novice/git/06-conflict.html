@@ -44,39 +44,43 @@
 <p>As soon as people can work in <strong>parallel</strong>, someone is going to step on someone else’s toes.</p>
 <p>This will even happen with a single person: if we are working on a piece of software on both our laptop and a server in the lab, we could make different changes to each copy.</p>
 <p>These situations are called <strong>conflicts</strong> Version control helps us manage these <a href="reference.html#conflicts">conflicts</a> by giving us tools to <a href="reference.html#resolve">resolve</a> overlapping changes.</p>
-<p>To see how we can resolve conflicts, we must first create one. The file <code>rainfall_conversion.py</code> currently looks like this in both partners’ copies of our <code>climate-analysis</code> repository:</p>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">cat</span> rainfall_conversion.py</code></pre>
-<pre class="output"><code>&quot;&quot;&quot;A library to perform rainfall unit conversions&quot;&quot;&quot;
+<p>To see how we can resolve conflicts, we must first create one. The file <code>rainfall_conversion.R</code> currently looks like this in both partners’ copies of our <code>climate-analysis</code> repository:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">cat</span> rainfall_conversion.R</code></pre>
+<pre class="output"><code>#A library to perform rainfall unit conversions
 
-def inches_to_mm(inches):
-    &quot;&quot;&quot;Convert inches to milimetres.
-
-    Arguments:
-    inches -- the rainfall inches
-    &quot;&quot;&quot;
-    mm = inches * 25.4
-    return mm</code></pre>
+inches_to_mm &lt;-  function(inches){
+  #Convert inches to milimetres.
+  
+  &quot;
+  Arguments:
+  #inches -- the rainfall inches
+  &quot;
+  mm &lt;- inches * 25.4
+  return(mm)
+}    </code></pre>
 <h3 id="developer-a---modify-and-push">Developer A - Modify and Push</h3>
 <div class="figure">
 <img src="img/slides/version-control-with-git-slides%20-%2025.jpg" alt="Conflicts" /><p class="caption">Conflicts</p>
 </div>
 <p>Let’s add a line to the bottom of Developer A’s copy only:</p>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">nano</span> rainfall_conversion.py
-$ <span class="kw">cat</span> rainfall_conversion.py</code></pre>
-<pre class="output"><code>&quot;&quot;&quot;A library to perform rainfall unit conversions&quot;&quot;&quot;
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">nano</span> rainfall_conversion.R
+$ <span class="kw">cat</span> rainfall_conversion.R</code></pre>
+<pre class="output"><code>#A library to perform rainfall unit conversions
 
-def inches_to_mm(inches):
-    &quot;&quot;&quot;Convert inches to milimetres.
-
-    Arguments:
-    inches -- the rainfall inches
-    &quot;&quot;&quot;
-    mm = inches * 25.4
-    return mm
+inches_to_mm &lt;-  function(inches){
+  #Convert inches to milimetres.
+  
+  &quot;
+  Arguments:
+  #inches -- the rainfall inches
+  &quot;
+  mm &lt;- inches * 25.4
+  return(mm)
+} 
 
 # TODO(Developer B): Add function to convert from inches to centimetres</code></pre>
 <p>and then push the change to GitHub:</p>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">git</span> add rainfall_conversion.py
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">git</span> add rainfall_conversion.R
 $ <span class="kw">git</span> commit -m <span class="st">&quot;Developer A added a line&quot;</span></code></pre>
 <pre class="output"><code>[master 5ae9631] Developer A added a line
  1 file changed, 1 insertion(+)</code></pre>
@@ -86,34 +90,36 @@ Delta compression using up to 8 threads.
 Compressing objects: 100% (3/3), done.
 Writing objects: 100% (3/3), 357 bytes | 0 bytes/s, done.
 Total 3 (delta 2), reused 0 (delta 0)
-To https://github.com/js-robinson/climate-analysis.git
+To https://github.com/DevasenaInupakutika/climate-analysis.git
    3973c44..479a5d2  master -&gt; master</code></pre>
 <h3 id="developer-b---modify-and-push-without-pull">Developer B - Modify and push without pull</h3>
 <p>Now let’s have Developer B make a different change to their copy <em>without</em> updating (pulling) from GitHub:</p>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">nano</span> rainfall_conversion.py
-$ <span class="kw">cat</span> rainfall_conversion.py</code></pre>
-<pre class="output"><code>&quot;&quot;&quot;A library to perform rainfall unit conversions&quot;&quot;&quot;
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">nano</span> rainfall_conversion.R
+$ <span class="kw">cat</span> rainfall_conversion.R</code></pre>
+<pre class="output"><code>#A library to perform rainfall unit conversions
 
-def inches_to_mm(inches):
-    &quot;&quot;&quot;Convert inches to milimetres.
-
-    Arguments:
-    inches -- the rainfall inches
-    &quot;&quot;&quot;
-    mm = inches * 25.4
-    return mm
+inches_to_mm &lt;-  function(inches){
+  #Convert inches to milimetres.
+  
+  &quot;
+  Arguments:
+  #inches -- the rainfall inches
+  &quot;
+  mm &lt;- inches * 25.4
+  return(mm)
+} 
 
 # TODO(Developer A): Add function to convert from inches to centimetres</code></pre>
 <p>We can commit the change locally:</p>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">git</span> add rainfall_conversion.py
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">git</span> add rainfall_conversion.R
 $ <span class="kw">git</span> commit -m <span class="st">&quot;Developer B added a different line&quot;</span></code></pre>
 <pre class="output"><code>[master 07ebc69] Developer B added a different line
  1 file changed, 1 insertion(+)</code></pre>
 <p>but Git won’t let us push it to GitHub:</p>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">git</span> push origin master</code></pre>
-<pre class="output"><code>To https://github.com/js-robinson/climate-analysis.git
+<pre class="output"><code>To https://github.com/DevasenaInupakutika/climate-analysis.git
  ! [rejected]        master -&gt; master (fetch first)
-error: failed to push some refs to &#39;https://github.com/js-robinson/climate-analysis.git&#39;
+error: failed to push some refs to &#39;https://github.com/DevasenaInupakutika/climate-analysis.git&#39;
 hint: Updates were rejected because the remote contains work that you do
 hint: not have locally. This is usually caused by another repository pushing
 hint: to the same ref. You may want to first integrate the remote changes
@@ -131,23 +137,25 @@ hint: See the &#39;Note about fast-forwards&#39; in &#39;git push --help&#39; fo
 remote: Compressing objects: 100% (1/1), done.
 remote: Total 3 (delta 2), reused 3 (delta 2), pack-reused 0
 Unpacking objects: 100% (3/3), done.
-From https://github.com/js-robinson/climate-analysis
+From https://github.com/DevasenaInupakutika/climate-analysis
    3973c44..479a5d2  master     -&gt; origin/master
-Auto-merging rainfall_conversion.py
-CONFLICT (content): Merge conflict in rainfall_conversion.py
+Auto-merging rainfall_conversion.R
+CONFLICT (content): Merge conflict in rainfall_conversion.R
 Automatic merge failed; fix conflicts and then commit the result.</code></pre>
 <p><code>git pull</code> tells us there’s a <strong>conflict</strong>, and marks that conflict in the affected file:</p>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">cat</span> rainfall_conversion.py</code></pre>
-<pre class="output"><code>&quot;&quot;&quot;A library to perform rainfall unit conversions&quot;&quot;&quot;
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">cat</span> rainfall_conversion.R</code></pre>
+<pre class="output"><code>#A library to perform rainfall unit conversions
 
-def inches_to_mm(inches):
-    &quot;&quot;&quot;Convert inches to milimetres.
-
-    Arguments:
-    inches -- the rainfall inches
-    &quot;&quot;&quot;
-    mm = inches * 25.4
-    return mm
+inches_to_mm &lt;-  function(inches){
+  #Convert inches to milimetres.
+  
+  &quot;
+  Arguments:
+  #inches -- the rainfall inches
+  &quot;
+  mm &lt;- inches * 25.4
+  return(mm)
+} 
 
 &lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
 # TODO(Developer A): Add function to convert from inches to centimetres
@@ -158,22 +166,24 @@ def inches_to_mm(inches):
 <p>It is now <strong>up to us</strong> to <strong>edit</strong> this file to <strong>remove these markers</strong> and <strong>reconcile the changes</strong>.</p>
 <p>We can do anything we want: <strong>keep the change made in the local repository</strong>, <strong>keep the change made in the remote repository</strong>, write something new to <strong>replace both</strong>, or <strong>get rid of the change</strong> entirely.</p>
 <p>Let’s <strong>replace</strong> both so that the file looks like this:</p>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">cat</span> rainfall_conversion.py</code></pre>
-<pre class="output"><code>&quot;&quot;&quot;A library to perform rainfall unit conversions&quot;&quot;&quot;
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">cat</span> rainfall_conversion.R</code></pre>
+<pre class="output"><code>#A library to perform rainfall unit conversions
 
-def inches_to_mm(inches):
-    &quot;&quot;&quot;Convert inches to milimetres.
-
-    Arguments:
-    inches -- the rainfall inches
-    &quot;&quot;&quot;
-    mm = inches * 25.4
-    return mm
+inches_to_mm &lt;-  function(inches){
+  #Convert inches to milimetres.
+  
+  &quot;
+  Arguments:
+  #inches -- the rainfall inches
+  &quot;
+  mm &lt;- inches * 25.4
+  return(mm)
+} 
 
 # TODO(all): Hire a new developer</code></pre>
 <h3 id="developer-b---add-commit-and-push">Developer B - Add, Commit and Push</h3>
-<p>To finish merging, we add <code>rainfall_conversion.py</code> to the changes being made by the merge and then commit:</p>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">git</span> add rainfall_conversion.py
+<p>To finish merging, we add <code>rainfall_conversion.R</code> to the changes being made by the merge and then commit:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">git</span> add rainfall_conversion.R
 $ <span class="kw">git</span> status</code></pre>
 <pre class="output"><code>On branch master
 Your branch and &#39;origin/master&#39; have diverged,
@@ -185,7 +195,7 @@ All conflicts fixed but you are still merging.
 
 Changes to be committed:
 
-        modified:   rainfall_conversion.py
+        modified:   rainfall_conversion.R
 </code></pre>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">git</span> commit -m <span class="st">&quot;Merging changes from GitHub&quot;</span></code></pre>
 <pre class="output"><code>[master 2abf2b1] Merging changes from GitHub</code></pre>
@@ -196,7 +206,7 @@ Delta compression using up to 4 threads.
 Compressing objects: 100% (6/6), done.
 Writing objects: 100% (6/6), 697 bytes, done.
 Total 6 (delta 2), reused 0 (delta 0)
-To https://github.com/js-robinson/climate-analysis.git
+To https://github.com/DevasenaInupakutika/climate-analysis.git
    dabb4c8..2abf2b1  master -&gt; master</code></pre>
 <p>Git keeps track of what we’ve merged with what, so we don’t have to fix things by hand again when <strong>Developer A</strong> who made the first change pulls again:</p>
 <h3 id="developer-a-pull">Developer A Pull</h3>
@@ -205,24 +215,26 @@ To https://github.com/js-robinson/climate-analysis.git
 remote: Compressing objects: 100% (4/4), done.        
 remote: Total 6 (delta 2), reused 6 (delta 2)        
 Unpacking objects: 100% (6/6), done.
-From https://github.com/js-robinson/climate-analysis
+From https://github.com/DevasenaInupakutika/climate-analysis
  * branch            master     -&gt; FETCH_HEAD
 Updating dabb4c8..2abf2b1
 Fast-forward
-rainfall_conversion.py | 2 +-
+rainfall_conversion.R | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)</code></pre>
 <p>we get the merged file:</p>
-<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">cat</span> rainfall_conversion.py</code></pre>
-<pre class="output"><code>&quot;&quot;&quot;A library to perform rainfall unit conversions&quot;&quot;&quot;
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">cat</span> rainfall_conversion.R</code></pre>
+<pre class="output"><code>#A library to perform rainfall unit conversions
 
-def inches_to_mm(inches):
-    &quot;&quot;&quot;Convert inches to milimetres.
-
-    Arguments:
-    inches -- the rainfall inches
-    &quot;&quot;&quot;
-    mm = inches * 25.4
-    return mm
+inches_to_mm &lt;-  function(inches){
+  #Convert inches to milimetres.
+  
+  &quot;
+  Arguments:
+  #inches -- the rainfall inches
+  &quot;
+  mm &lt;- inches * 25.4
+  return(mm)
+} 
 
 # TODO(all): Hire a new developer</code></pre>
 <p>We have resolved the conflict</p>

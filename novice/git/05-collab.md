@@ -76,7 +76,7 @@ and then click **"Create Repository"**:
 
 ###Connecting the remote repository###
 
-Our **local** repository still contains our earlier work on `climate-analysis.py` and `temp_conversion.py`,
+Our **local** repository still contains our earlier work on `climate-analysis.R` and `temp_conversion.R`,
 but the **remote** repository on GitHub doesn't contain any files yet:
 
 The next step is to **connect** the two repositories.
@@ -94,7 +94,7 @@ go back to your local repository,
 and run this command:
 
 ~~~ {.bash}
-$ git remote add origin https://github.com/js-robinson/climate-analysis.git
+$ git remote add origin https://github.com/DevasenaInupakutika/climate-analysis.git
 ~~~
 
 The name `origin` is a **local nickname** for your **remote repository**:
@@ -102,7 +102,7 @@ we **could** use something else if we wanted to,
 but `origin` is **conventional**, and will come in useful later.
 
 Make sure to use the URL for your repository rather than mine!
-The only difference should be your username instead of `js-robinson`.
+The only difference should be your username instead of `DevasenaInupakutika`.
 
 We can check that the command has worked by running `git remote -v`:
 
@@ -110,8 +110,8 @@ We can check that the command has worked by running `git remote -v`:
 $ git remote -v
 ~~~
 ~~~ {.output}
-origin  https://github.com/js-robinson/climate-analysis.git (fetch)
-origin  https://github.com/js-robinson/climate-analysis.git (push)
+origin  https://github.com/DevasenaInupakutika/climate-analysis.git (fetch)
+origin  https://github.com/DevasenaInupakutika/climate-analysis.git (push)
 ~~~
 
 ###Push commits from local to remote###
@@ -128,7 +128,7 @@ Delta compression using up to 8 threads.
 Compressing objects: 100% (10/10), done.
 Writing objects: 100% (10/10), 1.47 KiB | 0 bytes/s, done.
 Total 10 (delta 2), reused 0 (delta 0)
-To https://github.com/js-robinson/climate-analysis.git
+To https://github.com/DevasenaInupakutika/climate-analysis.git
  * [new branch]      master -> master
 ~~~
 The push command takes two arguments, the **remote name** ('origin') and a **branch name** ('master').
@@ -151,7 +151,7 @@ So, for **Developer A**, our local and remote repositories are now **in sync**! 
 $ git pull origin master
 ~~~
 ~~~ {.output}
-From https://github.com/js-robinson/climate-analysis
+From https://github.com/DevasenaInupakutika/climate-analysis
  * branch            master     -> FETCH_HEAD
 Already up-to-date.
 ~~~
@@ -172,17 +172,17 @@ Now **Developer B gets a go**! -  **Developer A**, you can **take a break** and 
 First, we need to accept Developer A's invitation to collaborate on GitHub.  You will receive an email, but we can avoid the wait by logging into GitHub in our browsers, and visiting the invite link:
 
 ~~~ {.bash}
-https://github.com/js-robinson/climate-analysis/invitations
+https://github.com/DevasenaInupakutika/climate-analysis/invitations
 ~~~
 
-Then, we need to move away from our own copies of the filse, to avoif confusion.  Remember, in this example, Developer B is playing the role of a fresh collaborator on the project 
+Then, we need to move away from our own copies of the filse, to avoid confusion.  Remember, in this example, Developer B is playing the role of a fresh collaborator on the project 
 
 ~~~ {.bash}
 $ cd
 ~~~ 
 
 ~~~ {.bash}
-$ git clone https://github.com/js-robinson/climate-analysis.git
+$ git clone https://github.com/DevasenaInupakutika/climate-analysis.git
 ~~~
 ~~~ {.output}
 Cloning into 'climate-analysis'...
@@ -203,38 +203,40 @@ $ ls
 ~~~
 
 ~~~ {.output}
-climate_analysis.py  temp_conversion.py
+climate_analysis.R  temp_conversion.R
 ~~~
 
-###Developer B - Add rainfall_conversion.py ###
+###Developer B - Add rainfall_conversion.R ###
 Lets expand our library of climate analysis functions by adding a new module:
 
 ~~~ {.bash}
-$ nano rainfall_conversion.py
-$ cat rainfall_conversion.py
+$ nano rainfall_conversion.R
+$ cat rainfall_conversion.R
 ~~~
 
 ~~~ {.output}
-"""A library to perform rainfall unit conversions"""
+#A library to perform rainfall unit conversions
 
-def inches_to_mm(inches):
-    """Convert inches to milimetres.
-
+inches_to_mm <-  function(inches){
+    #Convert inches to milimetres.
+    
+    "
     Arguments:
-    inches -- the rainfall inches
-    """
-    mm = inches * 25.4
-    return mm
+    #inches -- the rainfall inches
+    "
+    mm <- inches * 25.4
+    return(mm)
+}    
 ~~~
 
 
 ~~~ {.bash}
-$ git add rainfall_conversion.py
+$ git add rainfall_conversion.R
 $ git commit -m "Add rainfall module"
 ~~~
 ~~~ {.output}
 [master bcbf9be] Add rainfall module
- 1 file changed, 11 insertions(+)
+ 1 file changed, 12 insertions(+)
  create mode 100644 rainfall_conversion.py
 ~~~
 
@@ -249,7 +251,7 @@ Delta compression using up to 8 threads.
 Compressing objects: 100% (3/3), done.
 Writing objects: 100% (3/3), 475 bytes | 0 bytes/s, done.
 Total 3 (delta 0), reused 0 (delta 0)                                                                                                 
-To https://github.com/js-robinson/climate-analysis.git                                                                                
+To https://github.com/DevasenaInupakutika/climate-analysis.git                                                                                
    dab17a9..bcbf9be  master -> master
 ~~~
 
@@ -277,14 +279,14 @@ remote: Counting objects: 3, done.
 remote: Compressing objects: 100% (3/3), done.
 remote: Total 3 (delta 0), reused 3 (delta 0), pack-reused 0
 Unpacking objects: 100% (3/3), done.
-From https://github.com/js-robinson/climate-analysis
+From https://github.com/DevasenaInupakutika/climate-analysis
  * branch            master     -> FETCH_HEAD
    dab17a9..bcbf9be  master     -> origin/master
 Updating dab17a9..bcbf9be
 Fast-forward
- rainfall_conversion.py | 11 +++++++++++
- 1 file changed, 11 insertions(+)
- create mode 100644 rainfall_conversion.py
+ rainfall_conversion.py | 12 +++++++++++
+ 1 file changed, 12 insertions(+)
+ create mode 100644 rainfall_conversion.R
 ~~~
 
 **Hey look: We're collaborating!**

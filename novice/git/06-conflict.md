@@ -23,23 +23,25 @@ by giving us tools to [resolve](reference.html#resolve) overlapping changes.
 
 To see how we can resolve conflicts,
 we must first create one.
-The file `rainfall_conversion.py` currently looks like this
+The file `rainfall_conversion.R` currently looks like this
 in both partners' copies of our `climate-analysis` repository:
 
 ~~~ {.bash}
-$ cat rainfall_conversion.py
+$ cat rainfall_conversion.R
 ~~~
 ~~~ {.output}
-"""A library to perform rainfall unit conversions"""
+#A library to perform rainfall unit conversions
 
-def inches_to_mm(inches):
-    """Convert inches to milimetres.
-
-    Arguments:
-    inches -- the rainfall inches
-    """
-    mm = inches * 25.4
-    return mm
+inches_to_mm <-  function(inches){
+  #Convert inches to milimetres.
+  
+  "
+  Arguments:
+  #inches -- the rainfall inches
+  "
+  mm <- inches * 25.4
+  return(mm)
+}    
 ~~~
 
 ###Developer A - Modify and Push###
@@ -49,20 +51,22 @@ def inches_to_mm(inches):
 Let's add a line to the bottom of Developer A's copy only:
 
 ~~~ {.bash}
-$ nano rainfall_conversion.py
-$ cat rainfall_conversion.py
+$ nano rainfall_conversion.R
+$ cat rainfall_conversion.R
 ~~~
 ~~~ {.output}
-"""A library to perform rainfall unit conversions"""
+#A library to perform rainfall unit conversions
 
-def inches_to_mm(inches):
-    """Convert inches to milimetres.
-
-    Arguments:
-    inches -- the rainfall inches
-    """
-    mm = inches * 25.4
-    return mm
+inches_to_mm <-  function(inches){
+  #Convert inches to milimetres.
+  
+  "
+  Arguments:
+  #inches -- the rainfall inches
+  "
+  mm <- inches * 25.4
+  return(mm)
+} 
 
 # TODO(Developer B): Add function to convert from inches to centimetres
 ~~~
@@ -70,7 +74,7 @@ def inches_to_mm(inches):
 and then push the change to GitHub:
 
 ~~~ {.bash}
-$ git add rainfall_conversion.py
+$ git add rainfall_conversion.R
 $ git commit -m "Developer A added a line"
 ~~~
 ~~~ {.output}
@@ -86,7 +90,7 @@ Delta compression using up to 8 threads.
 Compressing objects: 100% (3/3), done.
 Writing objects: 100% (3/3), 357 bytes | 0 bytes/s, done.
 Total 3 (delta 2), reused 0 (delta 0)
-To https://github.com/js-robinson/climate-analysis.git
+To https://github.com/DevasenaInupakutika/climate-analysis.git
    3973c44..479a5d2  master -> master
 ~~~
 
@@ -96,20 +100,22 @@ Now let's have Developer B make a different change to their copy
 *without* updating (pulling) from GitHub:
 
 ~~~ {.bash}
-$ nano rainfall_conversion.py
-$ cat rainfall_conversion.py
+$ nano rainfall_conversion.R
+$ cat rainfall_conversion.R
 ~~~
 ~~~ {.output}
-"""A library to perform rainfall unit conversions"""
+#A library to perform rainfall unit conversions
 
-def inches_to_mm(inches):
-    """Convert inches to milimetres.
-
-    Arguments:
-    inches -- the rainfall inches
-    """
-    mm = inches * 25.4
-    return mm
+inches_to_mm <-  function(inches){
+  #Convert inches to milimetres.
+  
+  "
+  Arguments:
+  #inches -- the rainfall inches
+  "
+  mm <- inches * 25.4
+  return(mm)
+} 
 
 # TODO(Developer A): Add function to convert from inches to centimetres
 ~~~
@@ -117,7 +123,7 @@ def inches_to_mm(inches):
 We can commit the change locally:
 
 ~~~ {.bash}
-$ git add rainfall_conversion.py
+$ git add rainfall_conversion.R
 $ git commit -m "Developer B added a different line"
 ~~~
 ~~~ {.output}
@@ -131,9 +137,9 @@ but Git won't let us push it to GitHub:
 $ git push origin master
 ~~~
 ~~~ {.output}
-To https://github.com/js-robinson/climate-analysis.git
+To https://github.com/DevasenaInupakutika/climate-analysis.git
  ! [rejected]        master -> master (fetch first)
-error: failed to push some refs to 'https://github.com/js-robinson/climate-analysis.git'
+error: failed to push some refs to 'https://github.com/DevasenaInupakutika/climate-analysis.git'
 hint: Updates were rejected because the remote contains work that you do
 hint: not have locally. This is usually caused by another repository pushing
 hint: to the same ref. You may want to first integrate the remote changes
@@ -162,10 +168,10 @@ remote: Counting objects: 3, done.
 remote: Compressing objects: 100% (1/1), done.
 remote: Total 3 (delta 2), reused 3 (delta 2), pack-reused 0
 Unpacking objects: 100% (3/3), done.
-From https://github.com/js-robinson/climate-analysis
+From https://github.com/DevasenaInupakutika/climate-analysis
    3973c44..479a5d2  master     -> origin/master
-Auto-merging rainfall_conversion.py
-CONFLICT (content): Merge conflict in rainfall_conversion.py
+Auto-merging rainfall_conversion.R
+CONFLICT (content): Merge conflict in rainfall_conversion.R
 Automatic merge failed; fix conflicts and then commit the result.
 ~~~
 
@@ -173,19 +179,21 @@ Automatic merge failed; fix conflicts and then commit the result.
 and marks that conflict in the affected file:
 
 ~~~ {.bash}
-$ cat rainfall_conversion.py
+$ cat rainfall_conversion.R
 ~~~
 ~~~ {.output}
-"""A library to perform rainfall unit conversions"""
+#A library to perform rainfall unit conversions
 
-def inches_to_mm(inches):
-    """Convert inches to milimetres.
-
-    Arguments:
-    inches -- the rainfall inches
-    """
-    mm = inches * 25.4
-    return mm
+inches_to_mm <-  function(inches){
+  #Convert inches to milimetres.
+  
+  "
+  Arguments:
+  #inches -- the rainfall inches
+  "
+  mm <- inches * 25.4
+  return(mm)
+} 
 
 <<<<<<< HEAD
 # TODO(Developer A): Add function to convert from inches to centimetres
@@ -210,29 +218,31 @@ or **get rid of the change** entirely.
 Let's **replace** both so that the file looks like this:
 
 ~~~ {.bash}
-$ cat rainfall_conversion.py
+$ cat rainfall_conversion.R
 ~~~
 ~~~ {.output}
-"""A library to perform rainfall unit conversions"""
+#A library to perform rainfall unit conversions
 
-def inches_to_mm(inches):
-    """Convert inches to milimetres.
-
-    Arguments:
-    inches -- the rainfall inches
-    """
-    mm = inches * 25.4
-    return mm
+inches_to_mm <-  function(inches){
+  #Convert inches to milimetres.
+  
+  "
+  Arguments:
+  #inches -- the rainfall inches
+  "
+  mm <- inches * 25.4
+  return(mm)
+} 
 
 # TODO(all): Hire a new developer
 ~~~
 ###Developer B - Add, Commit and Push###
 To finish merging,
-we add `rainfall_conversion.py` to the changes being made by the merge
+we add `rainfall_conversion.R` to the changes being made by the merge
 and then commit:
 
 ~~~ {.bash}
-$ git add rainfall_conversion.py
+$ git add rainfall_conversion.R
 $ git status
 ~~~
 ~~~ {.output}
@@ -246,7 +256,7 @@ All conflicts fixed but you are still merging.
 
 Changes to be committed:
 
-        modified:   rainfall_conversion.py
+        modified:   rainfall_conversion.R
 
 ~~~
 ~~~ {.bash}
@@ -267,7 +277,7 @@ Delta compression using up to 4 threads.
 Compressing objects: 100% (6/6), done.
 Writing objects: 100% (6/6), 697 bytes, done.
 Total 6 (delta 2), reused 0 (delta 0)
-To https://github.com/js-robinson/climate-analysis.git
+To https://github.com/DevasenaInupakutika/climate-analysis.git
    dabb4c8..2abf2b1  master -> master
 ~~~
 
@@ -285,30 +295,32 @@ remote: Counting objects: 10, done.
 remote: Compressing objects: 100% (4/4), done.        
 remote: Total 6 (delta 2), reused 6 (delta 2)        
 Unpacking objects: 100% (6/6), done.
-From https://github.com/js-robinson/climate-analysis
+From https://github.com/DevasenaInupakutika/climate-analysis
  * branch            master     -> FETCH_HEAD
 Updating dabb4c8..2abf2b1
 Fast-forward
-rainfall_conversion.py | 2 +-
+rainfall_conversion.R | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 ~~~
 
 we get the merged file:
 
 ~~~ {.bash}
-$ cat rainfall_conversion.py
+$ cat rainfall_conversion.R
 ~~~
 ~~~ {.output}
-"""A library to perform rainfall unit conversions"""
+#A library to perform rainfall unit conversions
 
-def inches_to_mm(inches):
-    """Convert inches to milimetres.
-
-    Arguments:
-    inches -- the rainfall inches
-    """
-    mm = inches * 25.4
-    return mm
+inches_to_mm <-  function(inches){
+  #Convert inches to milimetres.
+  
+  "
+  Arguments:
+  #inches -- the rainfall inches
+  "
+  mm <- inches * 25.4
+  return(mm)
+} 
 
 # TODO(all): Hire a new developer
 ~~~
