@@ -204,7 +204,7 @@ telling them how to reconstruct one file given the other.
 The key things to note are:
 
  1. Line 1: The files that are being compared (a/ and b/ are labels, not paths)
- 2. Line 2: The two hex strings on the second line which parts of the hashes of the files being compares
+ 2. Line 2: The two hex strings on the second line which parts of the hashes of the files being compared
  3. Line 5: The lines that have changed. 
  4. Below that, the changes - note the '**+**' marker which shows an addtion
 
