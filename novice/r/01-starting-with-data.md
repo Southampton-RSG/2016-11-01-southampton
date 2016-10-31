@@ -90,7 +90,7 @@ The filename needs to be a character string (or [string](reference#string) for s
 >
 > `read.csv` actually has many more arguments that you may find useful when
 > importing your own data in the future. You can learn more about these
-> options in this supplementary [lesson](11-supp-read-write-csv/).
+> options in this supplementary [lesson](https://southampton-rsg.github.io/2016-11-01-southampton/novice/r/11-supp-read-write-csv.html).
 
 
 > ## Loading Data with Headers {.challenge}
@@ -294,13 +294,13 @@ head(dat)
 >
 > Draw diagrams showing what variables refer to what values after each statement in the following program:
 >
-> ~~~
+> ~~~{.r}
 > mass <- 47.5
 > age <- 122
 > mass <- mass * 2.0
 > age <- age - 20
 > ~~~
-> {: .r}
+> 
 
 
 ### Manipulating Data {.r}
@@ -314,10 +314,10 @@ class(dat)
 ~~~
 
 
-~~~
+~~~{.output}
 [1] "data.frame"
 ~~~
-{: .output}
+
 
 The output tells us that is a data frame. Think of this structure as a spreadsheet in MS Excel that many of us are familiar with.
 Data frames are very useful for storing data and you will find them elsewhere when programming in R. A typical data frame of experimental data contains individual observations in rows and variables in columns.

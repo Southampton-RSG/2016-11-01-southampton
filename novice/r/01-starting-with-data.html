@@ -103,7 +103,7 @@
 <h2><span class="glyphicon glyphicon-pushpin"></span>Other Options for Reading CSV Files</h2>
 </div>
 <div class="panel-body">
-<p><code>read.csv</code> actually has many more arguments that you may find useful when importing your own data in the future. You can learn more about these options in this supplementary <a href="11-supp-read-write-csv/">lesson</a>.</p>
+<p><code>read.csv</code> actually has many more arguments that you may find useful when importing your own data in the future. You can learn more about these options in this supplementary <a href="https://southampton-rsg.github.io/2016-11-01-southampton/novice/r/11-supp-read-write-csv.html">lesson</a>.</p>
 </div>
 </aside>
 <section class="challenge panel panel-success">
@@ -207,18 +207,16 @@ weight_lb</code></pre>
 </div>
 <div class="panel-body">
 <p>Draw diagrams showing what variables refer to what values after each statement in the following program:</p>
-<pre><code>mass &lt;- 47.5
-age &lt;- 122
-mass &lt;- mass * 2.0
-age &lt;- age - 20</code></pre>
-<p>{: .r}</p>
+<pre class="sourceCode r"><code class="sourceCode r">mass &lt;-<span class="st"> </span><span class="fl">47.5</span>
+age &lt;-<span class="st"> </span><span class="dv">122</span>
+mass &lt;-<span class="st"> </span>mass *<span class="st"> </span><span class="fl">2.0</span>
+age &lt;-<span class="st"> </span>age -<span class="st"> </span><span class="dv">20</span></code></pre>
 </div>
 </section>
 <h3 id="manipulating-data" class="r">Manipulating Data</h3>
 <p>Now that our data is loaded in memory, we can start doing things with it. First, let’s ask what type of thing <code>dat</code> is:</p>
 <pre><code>class(dat)</code></pre>
-<pre><code>[1] &quot;data.frame&quot;</code></pre>
-<p>{: .output}</p>
+<pre class="output"><code>[1] &quot;data.frame&quot;</code></pre>
 <p>The output tells us that is a data frame. Think of this structure as a spreadsheet in MS Excel that many of us are familiar with. Data frames are very useful for storing data and you will find them elsewhere when programming in R. A typical data frame of experimental data contains individual observations in rows and variables in columns.</p>
 <p>We can see the shape, or <a href="reference#dimensions">dimensions</a>, of the data frame with the function <code>dim</code>:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">dim</span>(dat)</code></pre>
