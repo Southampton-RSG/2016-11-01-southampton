@@ -71,7 +71,7 @@ Install R by downloading and running [this .exe file](http://cran.r-project.org/
 
 [Video Tutorial](https://www.youtube.com/watch?v=5-ly3kyxwEg)
 
-Install R by downloading and running [this .pkg file](http://cran.r-project.org/bin/macosx/R-latest.pkg) from [CRAN](http://cran.r-project.org/index.html). Also, please install the [RStudio IDE](http://www.rstudio.com/ide/download/desktop).
+Install R by downloading and running [this .pkg file](https://cran.r-project.org/bin/macosx/R-3.3.2.pkg) (MacOS 10.9 and later) or [this .pkg file](https://cran.r-project.org/bin/macosx/R-3.2.1-snowleopard.pkg) (MacOS 10.6 - 10.8) from [CRAN](http://cran.r-project.org/index.html). Also, please install the [RStudio IDE](http://www.rstudio.com/ide/download/desktop).
 
 #### Linux
 
