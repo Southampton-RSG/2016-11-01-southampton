@@ -106,11 +106,11 @@ we can ask Git to show us the project's history using `git log`:
 $ git log
 ~~~
 ~~~ {.output}
-commit c28a0b92b191fb723fce4519581b62d2f51888f5
+commit a10bd8f2b191fb723fce4519581b62d2f51888f5
 Author: DevasenaInupakutika <devasena.prasad@gmail.com>
 Date:   Mon Oct 24 14:42:14 2016 +0100
 
-    Updated data and created climate analysis and temperature conversion R scripts for git material
+    Initial commit of climate analysis code
 ~~~
 
 `git log` lists all revisions  made to a repository in reverse chronological order.
